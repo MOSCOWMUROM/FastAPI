@@ -17,12 +17,10 @@ def parse_poizonshop(html):
 
     # Находим все товары на странице
     products = soup.find_all(class_='product-card_product_card__5aPyG product-grid-pagination_product__LMyN_')
-    print(products)
     # Проходимся по каждому товару и извлекаем информацию
     for product in products:
         try:
             brand = product.find(class_='product-card_name__amzGC').text.strip()
-            print(brand.lower(), 'nike' in brand.lower())
             if 'nike' in brand.lower() or 'jordan' in brand.lower():
                 name = product.find(class_='product-card_name__amzGC').text.strip()
                 name = name.replace('"', '')
